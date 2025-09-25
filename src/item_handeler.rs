@@ -3,6 +3,7 @@ pub struct Item {
     weight: f32,
     description: String,
     item_type: ItemType,
+    dimensions: ItemSize,
 }
 
 pub enum ItemType {
@@ -13,6 +14,11 @@ pub enum ItemType {
     Junk,
 }
 
+struct ItemSize {
+    width: u8,
+    height: u8,
+}
+
 impl ItemType {
     fn to_string(&self) -> &str {
         match self {
@@ -21,6 +27,15 @@ impl ItemType {
             ItemType::Food => "Food",
             ItemType::Recource => "Recource",
             ItemType::Junk => "Junk",
+        }
+    }
+}
+
+impl ItemSize {
+    fn define_size(width: u8, height: u8) -> ItemSize {
+        ItemSize {
+            width: width,
+            height: height,
         }
     }
 }
@@ -42,12 +57,20 @@ impl Item {
         );
     }
 
-    pub fn build_item(name: &str, weight: f32, description: &str, item_type: ItemType) -> Item {
+    pub fn build_item(
+        name: &str,
+        weight: f32,
+        description: &str,
+        item_type: ItemType,
+        item_width: u8,
+        item_height: u8,
+    ) -> Item {
         Item {
             name: String::from(name),
             weight: weight,
             description: String::from(description),
             item_type: item_type,
+            dimensions: ItemSize::define_size(item_height, item_width),
         }
     }
 }
