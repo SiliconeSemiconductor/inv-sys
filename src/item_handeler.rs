@@ -49,7 +49,7 @@ impl Item {
     }
     pub fn print_item_extended(&self) {
         println!(
-            "Name: {}\nWeight: {}kg\nDescription: {}\n\nitem_type: {}",
+            "Name: {}\nWeight: {}kg\nDescription: {}\nitem_type: {}\n",
             self.name,
             self.weight,
             self.description,

@@ -8,6 +8,6 @@ fn main() {
     println!("Built item Data");
     for (k, v) in items {
         println!("{k}");
-        Item::print_item_extended(&v);
+        Item::print_item_extended(&v)
     }
 }
