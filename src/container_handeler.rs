@@ -29,7 +29,7 @@ impl Container {
             weight_to_string(self),
             self.widht,
             self.height,
-            self.slots,
+            slots_to_string(self),
         );
     }
 }
@@ -53,7 +53,11 @@ fn weight_to_string(_self: &Container) -> String {
         None => String::from("None"),
     }
 }
-
 fn slots_to_string(_self: &Container) -> String {
-    // implement function for vec<u8> to string in bits fuck you
+    let mut returnstring = String::new();
+    for i in &_self.slots {
+        let token: String = format!("{:08b}\n", i);
+        returnstring.push_str(token.as_str());
+    }
+    return returnstring;
 }

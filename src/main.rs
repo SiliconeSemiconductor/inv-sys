@@ -1,3 +1,4 @@
+use crate::container_handeler::Container;
 use crate::item_handeler::Item;
 
 mod container_handeler;
@@ -12,5 +13,6 @@ fn main() {
         Item::print_item_extended(&v)
     }
 
-    container_handeler::Container::build_container(String::from("Chest"), Some(2000.0), 10, 10);
+    let chest = Container::build_container(String::from("Chest"), Some(2000.0), 10, 10);
+    Container::print_container(&chest);
 }
