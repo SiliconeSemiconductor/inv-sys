@@ -1,3 +1,5 @@
+use std::string;
+
 #[allow(dead_code)]
 pub struct Container {
     name: String,
@@ -32,6 +34,11 @@ impl Container {
             slots_to_string(self),
         );
     }
+    pub fn print_container_fromated(&self) {
+        for i in 0..self.widht {
+            let row: String = String::new();
+        }
+    }
 }
 
 fn build_container_slots(widht: u32, height: u32) -> Vec<u8> {
@@ -60,4 +67,12 @@ fn slots_to_string(_self: &Container) -> String {
         returnstring.push_str(token.as_str());
     }
     return returnstring;
+}
+
+// bit mask functions:
+pub fn get_bit(mask: &Vec<u8>, index: usize) -> bool {
+    let byte_index: usize = index / 8;
+    let bit_index: usize = index % 8;
+
+    (mask[byte_index] >> bit_index) & 1 == 1
 }
